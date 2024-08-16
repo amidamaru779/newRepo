@@ -1,20 +1,18 @@
 'use strict';
 
-let title
-let number 
 const isNumber = function(num){
     return(!isNaN(num) && isFinite(num))
 }
 
 const startGame = function (botNumber) {
-    title = confirm("Угадай число от 1 до 100")
-    if (title === false){
+   
+    if (!confirm("Угадай число от 1 до 100")){
         alert("Спасибо за уделённое время. Досвидание!");
         return
     }
     
     const play = function () {
-        number = prompt("Пожалуйста введите число")
+        let number  = prompt("Пожалуйста введите число")
         
         if (number === null){
             alert("Игра окончена!");
