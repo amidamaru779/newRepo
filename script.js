@@ -3,7 +3,9 @@
 const btn = document.getElementById('btn');
 const txt = document.getElementById('text');
 const square = document.getElementById('square');
+
 const e_btn = document.getElementById('e_btn');
+
 const range = document.getElementById('range')
 const span = document.getElementById('range-span')
 const circle = document.getElementById('circle')
