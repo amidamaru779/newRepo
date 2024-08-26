@@ -6,6 +6,7 @@ const advertising = document.getElementsByClassName('adv')[0]
 const book2 = document.querySelectorAll('ul')[0].querySelectorAll('li')
 const book5 = document.querySelectorAll('ul')[5].querySelectorAll('li')
 const book6 = document.querySelectorAll('ul')[2]
+
 // восстановление порядка книг
 books[0].before(books[1])
 books[0].after(books[4])
@@ -16,7 +17,6 @@ advertising.remove()
 
 // замена заднего фона 
  background.style.backgroundImage = 'url("./image/you-dont-know-js.jpg")'
-
 
  // измененние книги 3
 bookName3.textContent = "Книга 3. this и Прототипы Объектов"
@@ -40,15 +40,12 @@ book5[5].before(book5[7])
 const newBook6Element = document.createElement('li')
 newBook6Element.textContent = "Глава 8: За пределами ES6"
 book6.append(newBook6Element)
-
-
+const newBook6 = document.querySelectorAll('ul')[5].querySelectorAll('li')
+newBook6[10].after(newBook6[9])
 
 console.log(book5);
-console.log(book6);
-
+console.log(newBook6);
 console.log(bookName3);
 console.log(background);
 console.log(book2);
-
-
 console.log(books);
