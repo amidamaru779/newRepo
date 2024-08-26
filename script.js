@@ -1,44 +1,28 @@
-'use strict';
+'use strict'
 
-const isNumber = function(num){
-    return(!isNaN(num) && isFinite(num))
-}
+const btn = document.getElementById('btn');
+const txt = document.getElementById('text');
+const square = document.getElementById('square');
+const e_btn = document.getElementById('e_btn');
+const range = document.getElementById('range')
+const span = document.getElementById('range-span')
+const circle = document.getElementById('circle')
 
-const startGame = function (botNumber) {
-   
-    if (!confirm("Угадай число от 1 до 100")){
-        alert("Спасибо за уделённое время. Досвидание!");
-        return
-    }
+e_btn.style.display = "none"
+
+const changeColor = function(event) {
+    txt.textContent = event.target.value
+    square.style.backgroundColor = txt.value;
     
-    const play = function () {
-        let number  = prompt("Пожалуйста введите число")
-        
-        if (number === null){
-            alert("Игра окончена!");
-            return
-        }
-
-        if (!isNumber(number)){
-            alert("Введите число!");
-            play();
-        }
-        
-        if (number > botNumber){
-            alert("Загаданное число меньше");
-            play()
-        }else if (number < botNumber){
-            alert("Загаданное число больше");
-            play()   
-        } 
-
-        if (+number === botNumber){
-            alert("Поздравляю, Вы угадали!");
-        }
-        
-        
-    }
-    play()
 }
 
-startGame(Math.floor(Math.random( ) * (100 - 1 + 1)) + 1)
+const changeCircleOption = function(event) {
+    span.textContent = event.target.value
+    circle.style.width = range.value + "%";
+    circle.style.height = range.value+ "%"; 
+    
+}
+
+btn.addEventListener('click', changeColor);
+range.addEventListener('input', changeCircleOption)
+
