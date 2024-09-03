@@ -7,7 +7,7 @@ const headerInput = document.querySelector('.header-input')
 const todoList = document.querySelector('.todo-list')
 const todoCompleted = document.querySelector('.todo-completed')
 
-let toDoData = JSON.parse(localStorage.getItem("todoList1")) || [];
+const toDoData = JSON.parse(localStorage.getItem("todoList1")) || [];
 
 const render = function () {
     todoList.innerHTML = ''
