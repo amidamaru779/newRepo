@@ -1,44 +1,28 @@
-'use strict';
+function DomElement(selector, height, width, bg, fontSize) {
+    this.selector = selector;
+    this.height = height;
+    this.width = width;
+    this.bg = bg;
+    this.fontSize = fontSize;
+    this.createElem();
 
-const isNumber = function(num){
-    return(!isNaN(num) && isFinite(num))
 }
-
-const startGame = function (botNumber) {
-   
-    if (!confirm("Угадай число от 1 до 100")){
-        alert("Спасибо за уделённое время. Досвидание!");
-        return
+DomElement.prototype.createElem = function () {
+    let elem;
+    if (this.selector.startsWith('.')) {
+        elem = document.createElement('div');
+        elem.classList.add(this.selector.slice(1));
+    } else if (this.selector.startsWith('#')) {
+        elem = document.createElement('p');
+        elem.id = this.selector.slice(1);
     }
-    
-    const play = function () {
-        let number  = prompt("Пожалуйста введите число")
-        
-        if (number === null){
-            alert("Игра окончена!");
-            return
-        }
 
-        if (!isNumber(number)){
-            alert("Введите число!");
-            play();
-        }
-        
-        if (number > botNumber){
-            alert("Загаданное число меньше");
-            play()
-        }else if (number < botNumber){
-            alert("Загаданное число больше");
-            play()   
-        } 
-
-        if (+number === botNumber){
-            alert("Поздравляю, Вы угадали!");
-        }
-        
-        
-    }
-    play()
-}
-
-startGame(Math.floor(Math.random( ) * (100 - 1 + 1)) + 1)
+    elem.style.height = this.height;
+    elem.style.width = this.width;
+    elem.style.backgroundColor = this.bg;
+    elem.style.fontSize = this.fontSize;
+    elem.textContent = 'Hello, world!';
+    document.body.append(elem);
+};
+const newElement = new DomElement('.block', '100px', '200px', 'red', '12px')
+const newElement1 = new DomElement('#block', '100px', '200px', 'blue', '20px')
