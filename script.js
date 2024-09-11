@@ -12,8 +12,7 @@ class Second extends First {
         console.log('А я наследуемый метод!');
     }
 }
-const objFirst = new First()
-objFirst.sayHello()
+
 
 const objSecond = new Second()
 objSecond.sayHello()
